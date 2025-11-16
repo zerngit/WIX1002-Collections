@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.wix1002lab.l4q1;
+//package com.wix1002lab.l4q1;
 
 /**
  *
@@ -18,6 +18,8 @@ public class L4Q1 {
         System.out.print("Enter an Integer: ");
         int num = sc.nextInt();
         
+        System.out.print("Enter the range: ");
+        int range = sc.nextInt();
         System.out.print("The factors are: ");
         
         // Printing the pattern/format of (", {num}") for all element excluding first factor
@@ -25,7 +27,7 @@ public class L4Q1 {
         
         boolean first = true;
         
-        for (int i = 1 ; i <= num ; i++) {
+        for (int i = 1 ; i <= range ; i++) {
             if (num % i == 0) {
                 
                 // Only first factor wont enter this selection
