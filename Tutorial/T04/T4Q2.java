@@ -15,7 +15,7 @@ public class T4Q2 {
         }
         while (x < 100);
 
-        for (int x = 1, int y = 20; x<y ; x++, y--2) {
+        for (int x = 1, y = 20; x<y ; x++, y-=2) {
             System.out.println(x + "" + y);
         }
 
@@ -24,4 +24,5 @@ public class T4Q2 {
             i++;
         }
         System.out.println("Program End");
+    }
 }
