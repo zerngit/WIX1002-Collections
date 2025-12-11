@@ -79,14 +79,18 @@ public class L7Q6 {
                 for (int j = 0 ; j < orderCount; j++) {
                     if (productID[i].equals(orderProductID[j])) {
                         quantity[i] += orderQuantity[j];
-                        totalPrice[i] = quantity[i] * productPrice[i];
-
-                        String line = String.format("%s, %s, %d, %.2f, %.2f", productID[i], productName[i], quantity[i], productPrice[i], totalPrice[i]);
-                        outputStream.println(line);
-
                     }
                 }
+
+                if (quantity[i] > 0) {
+                    totalPrice[i] = quantity[i] * productPrice[i];
+                    String line = String.format("%s, %s, %d, %.2f, %.2f", productID[i], productName[i], quantity[i], productPrice[i], totalPrice[i]);
+                    outputStream.println(line);
+                }
+                        
+
             }
+    
             outputStream.close();
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage());

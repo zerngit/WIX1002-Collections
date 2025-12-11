@@ -1,5 +1,5 @@
 SK042, Ayamas Nuget Crispy, 60, 9.99, 599.40
-SK013, 100 Plus, 74, 6.49, 480.26
+SK013, 100 Plus, 94, 6.49, 610.06
 SK066, Ali Cafe, 79, 8.99, 710.21
 SK079, Dettol Natural, 20, 4.99, 99.80
 SK088, Jasmine Pearl, 27, 37.99, 1025.73
