@@ -1,43 +1,50 @@
-
 import java.util.Random;
 import java.util.Scanner;
 
 public class RotateMatrix {
+
     public static void clockwiseRotate(int[][] matrix) {
-        int rows = matrix.length;
-        int cols = matrix[0].length;
-        //int[][] rotated = new int[cols][rows];
 
-        for (int a = 0; a < cols; a++) {
-            for (int b = rows - 1; b >= 0; b--) {
-                //rotated[a][rows - 1 - b] = matrix[b][a];
-                System.out.print(matrix[b][a] + " ");
-            }
-            System.out.println();  
-        }
+        int rows = matrix[0].length;
+        int cols = matrix.length;
+        int [][] rotated = new int[rows][cols];
 
-    }
-
-    public static void antiClockwiseRotate(int[][]matrix) { 
-        int rows = matrix.length;
-        int cols = matrix[0].length;
-
-        for (int a = cols-1; a >= 0 ; a --) {
-            for (int b = 0 ; b < rows ; b++) {
-                System.out.print(matrix[b][a] + " ");
+        for (int a = 0 ; a < rows ; a++) {
+            for (int b = 0; b < cols; b++) {
+                rotated[a][b] = matrix[cols-1-b][a];
+                System.out.print(rotated[a][cols - 1 -b] + " ");
             }
             System.out.println();
         }
-        
+
+    } 
+
+    public static void antiClockwiseRotate(int[][]matrix) { 
+
+        int rows = matrix[0].length;
+        int cols = matrix.length;
+
+        int[][] rotated = new int[rows][cols];
+
+        for (int a = 0 ; a < rows ; a++) {
+            for (int b = 0 ; b < cols ; b++) {
+                rotated[a][b] = matrix[b][rows-1-a];
+                System.out.print(rotated[a][b] + " ");
+            }
+            System.out.println();
+        }
     }
 
     public static void rotate180(int[][] matrix) {
+
         int rows = matrix.length;
         int cols = matrix[0].length;
+        int [][] rotated = new int[rows][cols];
 
-        for (int a = rows -1; a >= 0 ; a--) {
-            for (int b = cols -1; b >= 0 ; b--) {
-                System.out.print(matrix[a][b] + " ");
+        for (int a = 0; a < rows ; a++) {
+            for (int b = 0; b < cols ; b++) {
+                rotated[a][b] = matrix[rows-1-a][cols-1-b];
+                System.out.print(rotated[a][b] + " ");
             }
             System.out.println();
         }
@@ -73,17 +80,31 @@ public class RotateMatrix {
             System.out.println("After rotates " + (-degree) + " degree anti-clockwise: ");
         }
 
-        if (degree % 180 == 0 && degree != 0 ) {
-            rotate180(matrix);
-
-        } else if (degree % 90 == 0 && degree != 0) {
-            degree = degree % 360;
-            if (degree < 0) {
-                antiClockwiseRotate(matrix);
-            } else {
-                clockwiseRotate(matrix);
+    
+        if (degree % 360 == 0) {
+            System.out.println("No rotation needed.");
+        } else {
+            if (degree > 360 ) {
+                degree = degree % 360;
             }
-        }
+            
+            if (degree % 270 == 0) {
+                if (degree < 0) {
+                    clockwiseRotate(matrix);
+                } else {
+                    antiClockwiseRotate(matrix);
+                }
+            } else if (degree % 180 == 0 ) {
+                rotate180(matrix);
+            } else if (degree % 90 == 0) {
+                if (degree < 0) {
+                    antiClockwiseRotate(matrix);
+                } else {
+                    clockwiseRotate(matrix);
+                }
+            }
+        } 
         sc.close();
     }
 }
+
